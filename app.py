@@ -23,32 +23,43 @@ def finalizar_app():
     print("Finalizando o APP")
     os._exit(0)
 
+def opcao_invalida():
+    print("Opção invalida!")
+    input("Digite uma tecla para voltar ao menu principal")
+    main()
+
+
+
 
 def escolher_opcao():
-    opcao_escolhida = int(input("Escolha uma opção: ")) #Retornando uma String e convertendo para inteiro usando apenas uma linha
-    #opcao_escolhida = int(opcao_escolhida) # Convertendo para um valor int
+    try:
+        opcao_escolhida = int(input("Escolha uma opção: ")) #Retornando uma String e convertendo para inteiro usando apenas uma linha
+        #opcao_escolhida = int(opcao_escolhida) # Convertendo para um valor int
 
-    print(f"Você escolheu a opção :{opcao_escolhida}")
+        print(f"Você escolheu a opção :{opcao_escolhida}")
 
-    if opcao_escolhida == 1:
-        print("Cadastrar restaurante")
+        if opcao_escolhida == 1:
+            print("Cadastrar restaurante")
 
-    elif opcao_escolhida == 2:
-        print("Listar restaurantes")
+        elif opcao_escolhida == 2:
+            print("Listar restaurantes")
 
-    elif opcao_escolhida == 3:
-        print("Ativar restaurante")
+        elif opcao_escolhida == 3:
+            print("Ativar restaurante")
 
-    elif opcao_escolhida == 4:
-        finalizar_app()
+        elif opcao_escolhida == 4:
+            finalizar_app()
 
-    else:
-        print("Opção invalida!")
-
+        else:
+            
+            opcao_invalida()
+    except:
+        opcao_invalida()
 
 
 
 def main():
+    os.system("cls")
     exibir_nome_do_programa()
     exibir_opcoes()
     escolher_opcao()
